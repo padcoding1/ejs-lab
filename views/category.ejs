@@ -1,0 +1,21 @@
+<%- include('./partials/main') %>
+		<title><%= category %></title>
+	</head>
+	<body>
+		<%- include('./partials/nav') %>
+
+		<h1><%= category %></h1> 
+		<% menuItems.forEach( (dish) => { %>
+			
+				<h3><%= dish.name %>
+                    <% if(dish.rating === 5) {%>
+                    <span>&#11088;</span>
+                    <% } %>
+                </h3>
+				<li>$<%= dish.price %></li>
+				<li>Rating: <%= dish.rating %></li>
+				<li><%= dish.details %></li>
+			</ul>
+		<% }) %>
+	</body>
+</html>

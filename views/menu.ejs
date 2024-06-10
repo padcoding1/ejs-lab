@@ -1,0 +1,33 @@
+<%- include('./partials/main') %>
+		<title>Menu</title>
+	</head>
+	<body>
+		<%- include('./partials/nav') %>
+		<h1>Full Menu</h1>
+		
+		<h2>Mains</h2> 
+		<% menu.filter( (dish) => { %>
+			<% if (dish.category === "mains") {%>
+				<% printMenu(dish) }})%>
+		<h2>Sides</h2> 
+		<% menu.filter( (dish) => { %>
+			<% if (dish.category === "sides") {%>
+				<% printMenu(dish) }})%>
+		<h2>Desserts</h2>
+		<% menu.filter( (dish) => { %>
+			<% if (dish.category === "desserts") {%>
+				<% printMenu(dish) }})%>
+		<% function printMenu(dish) { %>
+			<ul>
+				<h3><%= dish.name %>
+                    <% if(dish.rating === 5) {%>
+                    <span>&#11088;</span>
+                    <% } %>
+                </h3><%= dish.name %></h3>
+				<li>$<%= dish.price %></li>
+				<li>Rating: <%= dish.rating %></li>
+				<li><%= dish.details %></li>
+			</ul>
+		<% } %>
+	</body>
+</html>
